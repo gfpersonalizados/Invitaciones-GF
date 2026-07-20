@@ -1,196 +1,214 @@
-//========================================
-// GF Personalizados
-// Invitaciones Premium
-//========================================
+// ==============================
+// CARGAR DATOS DEL CONFIG
+// ==============================
 
-document.addEventListener("DOMContentLoaded", () => {
+document.getElementById("novios").innerHTML =
+`${CONFIG.novio} & ${CONFIG.novia}`;
 
-    // Nombres
-    document.getElementById("novios").textContent =
-        CONFIG.novio + " & " + CONFIG.novia;
+document.getElementById("fechaBoda").innerHTML =
+CONFIG.fechaTexto;
 
-    // Fecha
-    document.getElementById("fechaEvento").innerHTML =
-        "<strong>Fecha:</strong> " + CONFIG.fechaTexto;
+document.getElementById("historia").innerHTML =
+CONFIG.historia;
 
-    // Ceremonia
-    document.getElementById("ceremonia").innerHTML =
-        "<strong>Ceremonia:</strong><br>" +
-        CONFIG.ceremonia;
+document.getElementById("iglesiaNombre").innerHTML =
+CONFIG.ceremonia.nombre;
 
-    // Recepción
-    document.getElementById("recepcion").innerHTML =
-        "<strong>Recepción:</strong><br>" +
-        CONFIG.recepcion;
+document.getElementById("iglesiaDireccion").innerHTML =
+CONFIG.ceremonia.direccion;
 
-    // Botones
-    document.getElementById("btnMapa").href = CONFIG.mapa;
+document.getElementById("mapaIglesia").href =
+CONFIG.ceremonia.mapa;
 
-    document.getElementById("btnWhatsApp").href =
-        "https://wa.me/" +
-        CONFIG.telefono +
-        "?text=" +
-        encodeURIComponent(CONFIG.mensajeWhatsapp);
+document.getElementById("salonNombre").innerHTML =
+CONFIG.recepcion.nombre;
 
-    iniciarContador();
+document.getElementById("salonDireccion").innerHTML =
+CONFIG.recepcion.direccion;
 
+document.getElementById("mapaSalon").href =
+CONFIG.recepcion.mapa;
+
+document.getElementById("whatsapp").href =
+CONFIG.whatsapp;
+
+
+// ==============================
+// VIDEO
+// ==============================
+
+document.getElementById("videoContainer").innerHTML =
+`
+<iframe
+width="100%"
+height="450"
+src="${CONFIG.video}"
+frameborder="0"
+allowfullscreen>
+</iframe>
+`;
+
+
+// ==============================
+// ABRIR INVITACIÓN
+// ==============================
+
+document
+.getElementById("abrirInvitacion")
+.onclick=function(){
+
+document.querySelector(".hero").style.display="none";
+
+document.getElementById("contenido").style.display="block";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
 });
 
-
-//========================================
-// Abrir Invitación
-//========================================
-
-function abrirInvitacion(){
-
-    const video=document.getElementById("video");
-
-    video.style.display="block";
-
-    video.scrollIntoView({
-        behavior:"smooth"
-    });
-
-    document
-        .getElementById("videoInvitacion")
-        .play();
-
 }
 
 
+// ==============================
+// CONTADOR
+// ==============================
 
-//========================================
-// Cuenta regresiva
-//========================================
+function actualizarContador(){
 
-function iniciarContador(){
+const destino=new Date(CONFIG.fechaCuenta).getTime();
 
-    function actualizar(){
+const ahora=new Date().getTime();
 
-        const destino=new Date(CONFIG.fechaCuenta);
+const diferencia=destino-ahora;
 
-        const ahora=new Date();
+const dias=Math.floor(diferencia/(1000*60*60*24));
 
-        const diferencia=destino-ahora;
+const horas=Math.floor(
+(diferencia%(1000*60*60*24))
+/
+(1000*60*60)
+);
 
-        if(diferencia<=0){
+const minutos=Math.floor(
+(diferencia%(1000*60*60))
+/
+(1000*60)
+);
 
-            document.getElementById("contador").innerHTML=
-            "¡Llegó el gran día! ❤️";
+const segundos=Math.floor(
+(diferencia%(1000*60))
+/
+1000
+);
 
-            return;
+document.getElementById("countdown").innerHTML=
 
-        }
+`
+<div class="cajaTiempo">
 
-        const dias=Math.floor(diferencia/(1000*60*60*24));
+<div class="numero">${dias}</div>
 
-        const horas=Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
+<div class="texto">Días</div>
 
-        const minutos=Math.floor((diferencia%(1000*60*60))/(1000*60));
+</div>
 
-        const segundos=Math.floor((diferencia%(1000*60))/1000);
+<div class="cajaTiempo">
 
-        document.getElementById("contador").innerHTML=
+<div class="numero">${horas}</div>
 
-        dias+" días "
+<div class="texto">Horas</div>
 
-        +horas+" h "
+</div>
 
-        +minutos+" min "
+<div class="cajaTiempo">
 
-        +segundos+" seg";
+<div class="numero">${minutos}</div>
 
-    }
+<div class="texto">Minutos</div>
 
-    actualizar();
+</div>
 
-    setInterval(actualizar,1000);
+<div class="cajaTiempo">
+
+<div class="numero">${segundos}</div>
+
+<div class="texto">Segundos</div>
+
+</div>
+
+`;
 
 }
 
+setInterval(actualizarContador,1000);
+
+actualizarContador();
 
 
-//========================================
-// Corazones flotando
-//========================================
+// ==============================
+// GALERÍA
+// ==============================
 
-setInterval(()=>{
+let foto=0;
 
-    let corazon=document.createElement("div");
-
-    const corazones=["❤️","🤍"];
-
-    corazon.innerHTML=
-    corazones[Math.floor(Math.random()*corazones.length)];
-
-    corazon.style.position="fixed";
-
-    corazon.style.left=Math.random()*100+"vw";
-
-    corazon.style.bottom="-30px";
-
-    corazon.style.fontSize=(18+Math.random()*28)+"px";
-
-    corazon.style.opacity=.85;
-
-    corazon.style.pointerEvents="none";
-
-    corazon.style.zIndex="999";
-
-    corazon.style.transition="transform 6s ease-out, opacity 6s ease-out";
-
-    corazon.style.filter="drop-shadow(0 0 8px rgba(255,0,80,.5))";
-
-    document.body.appendChild(corazon);
-
-    setTimeout(()=>{
-
-    corazon.style.transform="translateY(-120vh)";
-
-    corazon.style.opacity="0";
-
-},50);
-
-    setTimeout(()=>{
-
-        corazon.remove();
-
-    },5500);
-
-},350);
-
-
-
-//========================================
-// Galería automática
-//========================================
-
-const fotos=[
-
-"foto1.jpg",
-
-"foto2.jpg",
-
-"foto3.jpg"
-
-];
-
-let indice=0;
+document.getElementById("fotoGaleria").src=
+CONFIG.galeria[0];
 
 setInterval(()=>{
 
-    indice++;
+foto++;
 
-    if(indice>=fotos.length){
+if(foto>=CONFIG.galeria.length){
 
-        indice=0;
+foto=0;
 
-    }
+}
 
-    document.getElementById("foto1").src=fotos[indice];
+document.getElementById("fotoGaleria").src=
+CONFIG.galeria[foto];
 
-    document.getElementById("foto2").src=fotos[(indice+1)%3];
+},3500);
 
-    document.getElementById("foto3").src=fotos[(indice+2)%3];
 
-},4000);
+// ==============================
+// CORAZONES
+// ==============================
+
+function crearCorazon(){
+
+const heart=document.createElement("span");
+
+const colores=["❤️","🤍"];
+
+heart.className="heart";
+
+heart.innerHTML=
+colores[Math.floor(Math.random()*2)];
+
+heart.style.left=
+Math.random()*100+"vw";
+
+heart.style.fontSize=
+(18+Math.random()*28)+"px";
+
+heart.style.animationDuration=
+(5+Math.random()*5)+"s";
+
+heart.style.setProperty(
+"--x",
+(Math.random()*220-110)+"px"
+);
+
+document
+.getElementById("hearts")
+.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},10000);
+
+}
+
+setInterval(crearCorazon,300);
