@@ -2,45 +2,86 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Invitación de Boda</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="hero">
-<h1 id="novios">Michel & Josue</h1>
-<p>¡Nos casamos!</p>
-<a class="btn" href="#" onclick="abrirInvitacion(); return false;">
-Abrir invitación
-</a>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<section id="video">
-<video controls playsinline>
-<source src="invitacion.mp4" type="video/mp4">
-</video>
+<title>Invitación de Boda</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="config.js"></script>
+</head>
+
+<body>
+
+<header class="hero">
+
+    <div class="overlay">
+
+        <h1 id="novios"></h1>
+
+        <p>¡Nos Casamos!</p>
+
+        <button class="btn" onclick="abrirInvitacion()">
+            Abrir Invitación
+        </button>
+
+    </div>
+
+</header>
+
+<section id="video" style="display:none;">
+
+    <video id="videoInvitacion" controls playsinline width="100%">
+
+        <source src="invitacion.mp4" type="video/mp4">
+
+        Tu navegador no soporta video.
+
+    </video>
+
 </section>
 
 <section class="card">
-<h2>Cuenta regresiva</h2>
+
+<h2>⏳ Cuenta regresiva</h2>
+
 <div id="contador"></div>
-<p id="fecha">27 de diciembre de 2026 - 3:00 PM</p>
-<p>⛪ Parroquia San Francisco de Asis, Yucuaiquin</p>
-<p>🎉 Ranchon de la hacienda</p>
-<a class="btn" href="https://www.google.com/maps/place/Ranch%C3%B3n+de+La+Hacienda/@13.5241992,-88.0046338,17z/data=!3m1!4b1!4m6!3m5!1s0x8f7ad30032da1b41:0x4dc42d74667433bd!8m2!3d13.5241992!4d-88.0020589!16s%2Fg%2F11vk3s0ysw?entry=ttu&g_ep=EgoyMDI2MDcxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">📍 Cómo llegar</a>
-<a class="btn" href="https://wa.me/50377777777?text=Confirmo%20mi%20asistencia" target="_blank">📲 Confirmar asistencia</a>
+
+<p id="fechaEvento"></p>
+
+<p id="ceremonia"></p>
+
+<p id="recepcion"></p>
+
+<a id="btnMapa" class="btn" target="_blank">
+📍 Cómo llegar
+</a>
+
+<a id="btnWhatsApp" class="btn" target="_blank">
+📲 Confirmar asistencia
+</a>
+
 </section>
 
 <section class="galeria">
-<h2>Nuestra Historia</h2>
-<img src="foto1.jpg">
-<img src="foto2.jpg">
-<img src="foto3.jpg">
+
+<h2>Nuestra Historia ❤️</h2>
+
+<img id="foto1" src="foto1.jpg">
+
+<img id="foto2" src="foto2.jpg">
+
+<img id="foto3" src="foto3.jpg">
+
 </section>
 
 <footer>
-Invitación digital realizada por Estampado GF
+
+Invitación Digital creada por <strong>GF-Personalizados</strong>
+
 </footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>
