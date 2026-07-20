@@ -12,7 +12,36 @@ padding:0;
 box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
+<script>
 
+const fechaBoda = new Date("December 20, 2026 16:00:00").getTime();
+
+const contador = document.createElement("h2");
+contador.style.marginTop="30px";
+contador.style.color="#b8860b";
+document.querySelector(".info").prepend(contador);
+
+setInterval(()=>{
+
+const ahora = new Date().getTime();
+
+const diferencia = fechaBoda-ahora;
+
+const dias=Math.floor(diferencia/(1000*60*60*24));
+const horas=Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
+const minutos=Math.floor((diferencia%(1000*60*60))/(1000*60));
+const segundos=Math.floor((diferencia%(1000*60))/1000);
+
+contador.innerHTML=
+"⏳ Faltan <br><br><strong>"+dias+
+"</strong> días "+
+horas+"h "+
+minutos+"m "+
+segundos+"s";
+
+},1000);
+
+</script>
 body{
 background:#f8f5ef;
 color:#333;
