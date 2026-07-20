@@ -3,23 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invitación Digital</title>
+<title>Invitación de Boda</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-    margin:0;
-    background:#000;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
+background:#f8f5ef;
+color:#333;
+text-align:center;
+}
+
+header{
+padding:50px 20px;
+background:linear-gradient(#d4af37,#fff);
+}
+
+h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+h2{
+font-weight:normal;
+margin-bottom:30px;
+}
+
+button{
+background:#d4af37;
+color:white;
+border:none;
+padding:15px 30px;
+font-size:18px;
+border-radius:30px;
+cursor:pointer;
+}
+
+section{
+padding:30px 20px;
 }
 
 video{
-    width:100%;
-    max-width:420px;
-    border-radius:15px;
-    box-shadow:0 0 20px rgba(255,255,255,.2);
+width:95%;
+max-width:450px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.3);
+}
+
+.info{
+font-size:20px;
+line-height:40px;
+}
+
+a.boton{
+display:inline-block;
+margin:10px;
+padding:15px 30px;
+background:#d4af37;
+color:white;
+text-decoration:none;
+border-radius:30px;
 }
 </style>
 
@@ -27,10 +75,55 @@ video{
 
 <body>
 
-<video controls autoplay playsinline>
-    <source src="invitacion.mp4" type="video/mp4">
+<header>
+
+<h1>Ana & Carlos</h1>
+
+<h2>¡Nos Casamos!</h2>
+
+<button onclick="document.getElementById('video').scrollIntoView({behavior:'smooth'})">
+Abrir Invitación
+</button>
+
+</header>
+
+<section id="video">
+
+<video controls playsinline>
+
+<source src="Invitacion.mp4" type="video/mp4">
+
 </video>
+
+</section>
+
+<section class="info">
+
+<p>📅 20 de diciembre de 2026</p>
+
+<p>⏰ 4:00 PM</p>
+
+<p>⛪ Iglesia El Rosario</p>
+
+<p>🎉 Hotel Real Intercontinental</p>
+
+</section>
+
+<section>
+
+<a class="boton"
+href="https://maps.google.com"
+target="_blank">
+📍 Cómo llegar
+</a>
+
+<a class="boton"
+href="https://wa.me/50377777777?text=Confirmo%20mi%20asistencia%20a%20la%20boda"
+target="_blank">
+📲 Confirmar asistencia
+</a>
+
+</section>
 
 </body>
 </html>
-
