@@ -4,15 +4,15 @@ const CONFIG = {
     // NOVIOS
     //===========================
 
-    novio: "Josue",
-    novia: "Michell",
+    novio: "Carlos",
+    novia: "María",
 
     //===========================
     // FECHA
     //===========================
 
-    fechaTexto: "27 de Diciembre de 2026",
-    fechaCuenta: "2026-12-27 15:00:00",
+    fechaTexto: "14 de febrero de 2027",
+    fechaCuenta: "2027-02-14 16:00:00",
 
     //===========================
     // HISTORIA
@@ -32,11 +32,11 @@ const CONFIG = {
 
     ceremonia: {
 
-        nombre: "Parroquia San Francisco de Asis",
+        nombre: "Iglesia El Rosario",
 
-        direccion: "Yucuaiquin, La Union Sur",
+        direccion: "Centro Histórico, San Salvador",
 
-        mapa: "https://www.google.com/maps/place/Iglesia+Parroquial+San+Francisco+de+As%C3%ADs/@13.5483078,-88.0040033,17z/data=!3m1!4b1!4m6!3m5!1s0x8f6532baba74a0c5:0xcea582cf348da68f!8m2!3d13.5483078!4d-88.0014284!16s%2Fg%2F1hf3jqrrp?entry=ttu&g_ep=EgoyMDI2MDcxNS4wIKXMDSoASAFQAw%3D%3D"
+        mapa: "https://maps.google.com/"
 
     },
 
@@ -46,11 +46,11 @@ const CONFIG = {
 
     recepcion: {
 
-        nombre: "Ranchon de La Hacienda",
+        nombre: "Hotel Real Intercontinental",
 
-        direccion: "colonia las brisas, cacerio palo galan, Yucuaiquin",
+        direccion: "San Salvador",
 
-        mapa: "https://www.google.com/maps/place/Ranch%C3%B3n+de+La+Hacienda/@13.5241992,-88.0046338,17z/data=!3m1!4b1!4m6!3m5!1s0x8f7ad30032da1b41:0x4dc42d74667433bd!8m2!3d13.5241992!4d-88.0020589!16s%2Fg%2F11vk3s0ysw?entry=ttu&g_ep=EgoyMDI2MDcxNS4wIKXMDSoASAFQAw%3D%3D"
+        mapa: "https://maps.google.com/"
 
     },
 
@@ -73,6 +73,6 @@ const CONFIG = {
     //===========================
 
     whatsapp:
-    "https://wa.me/50373062031?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20❤️"
+    "https://wa.me/50370000000?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20❤️"
 
 };
