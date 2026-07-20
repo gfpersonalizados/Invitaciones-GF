@@ -2,157 +2,44 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Invitación de Boda</title>
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-<script>
-
-const fechaBoda = new Date("December 20, 2026 16:00:00").getTime();
-
-const contador = document.createElement("h2");
-contador.style.marginTop="30px";
-contador.style.color="#b8860b";
-document.querySelector(".info").prepend(contador);
-
-setInterval(()=>{
-
-const ahora = new Date().getTime();
-
-const diferencia = fechaBoda-ahora;
-
-const dias=Math.floor(diferencia/(1000*60*60*24));
-const horas=Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
-const minutos=Math.floor((diferencia%(1000*60*60))/(1000*60));
-const segundos=Math.floor((diferencia%(1000*60))/1000);
-
-contador.innerHTML=
-"⏳ Faltan <br><br><strong>"+dias+
-"</strong> días "+
-horas+"h "+
-minutos+"m "+
-segundos+"s";
-
-},1000);
-
-</script>
-body{
-background:#f8f5ef;
-color:#333;
-text-align:center;
-}
-
-header{
-padding:50px 20px;
-background:linear-gradient(#d4af37,#fff);
-}
-
-h1{
-font-size:40px;
-margin-bottom:10px;
-}
-
-h2{
-font-weight:normal;
-margin-bottom:30px;
-}
-
-button{
-background:#d4af37;
-color:white;
-border:none;
-padding:15px 30px;
-font-size:18px;
-border-radius:30px;
-cursor:pointer;
-}
-
-section{
-padding:30px 20px;
-}
-
-video{
-width:95%;
-max-width:450px;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,.3);
-}
-
-.info{
-font-size:20px;
-line-height:40px;
-}
-
-a.boton{
-display:inline-block;
-margin:10px;
-padding:15px 30px;
-background:#d4af37;
-color:white;
-text-decoration:none;
-border-radius:30px;
-}
-</style>
-
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<header>
-
-<h1>Ana & Carlos</h1>
-
-<h2>¡Nos Casamos!</h2>
-
-<button onclick="document.getElementById('video').scrollIntoView({behavior:'smooth'})">
-Abrir Invitación
-</button>
-
+<header class="hero">
+<h1 id="novios">Ana & Carlos</h1>
+<p>¡Nos casamos!</p>
+<a class="btn" href="#video">Abrir invitación</a>
 </header>
 
 <section id="video">
-
 <video controls playsinline>
-
 <source src="Invitacion.mp4" type="video/mp4">
-
 </video>
-
 </section>
 
-<section class="info">
-
-<p>📅 20 de diciembre de 2026</p>
-
-<p>⏰ 4:00 PM</p>
-
+<section class="card">
+<h2>Cuenta regresiva</h2>
+<div id="contador"></div>
+<p id="fecha">20 de diciembre de 2026 - 4:00 PM</p>
 <p>⛪ Iglesia El Rosario</p>
-
-<p>🎉 Hotel Real Intercontinental</p>
-
+<p>🎉 Hotel Real</p>
+<a class="btn" href="https://maps.google.com" target="_blank">📍 Cómo llegar</a>
+<a class="btn" href="https://wa.me/50377777777?text=Confirmo%20mi%20asistencia" target="_blank">📲 Confirmar asistencia</a>
 </section>
 
-<section>
-
-<a class="boton"
-href="https://maps.google.com"
-target="_blank">
-📍 Cómo llegar
-</a>
-
-<a class="boton"
-href="https://wa.me/50377777777?text=Confirmo%20mi%20asistencia%20a%20la%20boda"
-target="_blank">
-📲 Confirmar asistencia
-</a>
-
+<section class="galeria">
+<h2>Nuestra Historia</h2>
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
 </section>
 
+<footer>
+Invitación digital realizada por Estampado GF
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

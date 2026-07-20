@@ -1,0 +1,9 @@
+body{margin:0;font-family:Arial,sans-serif;background:#f8f5ef;color:#333;text-align:center}
+.hero{padding:70px 20px;background:linear-gradient(135deg,#d4af37,#fff)}
+h1{font-size:48px}
+.btn{display:inline-block;margin:10px;padding:14px 28px;background:#c49a2c;color:#fff;text-decoration:none;border-radius:30px}
+video{width:95%;max-width:450px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,.3)}
+.card{padding:40px 20px}
+#contador{font-size:28px;font-weight:bold;color:#b8860b;margin:20px}
+.galeria img{width:220px;max-width:90%;margin:10px;border-radius:12px}
+footer{padding:30px;background:#222;color:#fff;margin-top:40px}
