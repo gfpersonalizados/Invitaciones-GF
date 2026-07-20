@@ -22,8 +22,12 @@ overflow-x:hidden;
 height:100vh;
 
 background:
-linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+linear-gradient(rgba(120,20,40,.25),rgba(60,0,30,.18)),
 url("portada.jpg");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
 
 background-size:cover;
 
@@ -70,16 +74,16 @@ margin-bottom:40px;
 .btn{
 
 display:inline-block;
-
-padding:18px 40px;
-
+padding:18px 45px;
 border-radius:50px;
 
-background:#d4af37;
+background:linear-gradient(45deg,#ff4d6d,#ff1744);
 
 color:white;
 
 font-size:20px;
+
+font-weight:bold;
 
 text-decoration:none;
 
@@ -89,17 +93,16 @@ border:none;
 
 transition:.4s;
 
-box-shadow:0 0 20px rgba(212,175,55,.5);
+box-shadow:0 0 25px rgba(255,0,80,.45);
 
 }
-
 .btn:hover{
 
 transform:scale(1.08);
 
-background:#b99116;
+background:linear-gradient(45deg,#ff1744,#d50000);
 
-box-shadow:0 0 35px gold;
+box-shadow:0 0 35px rgba(255,0,0,.6);
 
 }
 
@@ -125,7 +128,9 @@ box-shadow:0 15px 40px rgba(0,0,0,.35);
 
 .card{
 
-background:white;
+background:rgba(255,255,255,.95);
+backdrop-filter:blur(10px);
+border:2px solid #ffe0e6;
 
 width:90%;
 
@@ -149,7 +154,7 @@ font-size:36px;
 
 margin-bottom:25px;
 
-color:#b99116;
+color:#c2185b;
 
 }
 
@@ -161,7 +166,7 @@ font-weight:bold;
 
 margin:30px 0;
 
-color:#d4af37;
+color:#ff1744;
 
 }
 
