@@ -7,7 +7,7 @@ box-sizing:border-box;
 body{
 
 font-family:Georgia,serif;
-background:#faf7f2;
+background:linear-gradient(180deg,#fff8f8,#fffdf9,#ffeef2);
 color:#444;
 overflow-x:hidden;
 
