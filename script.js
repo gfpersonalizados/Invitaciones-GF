@@ -118,7 +118,10 @@ setInterval(()=>{
 
     let corazon=document.createElement("div");
 
-    corazon.innerHTML="❤";
+    const corazones=["❤️","🤍"];
+
+    corazon.innerHTML=
+    corazones[Math.floor(Math.random()*corazones.length)];
 
     corazon.style.position="fixed";
 
@@ -126,9 +129,9 @@ setInterval(()=>{
 
     corazon.style.bottom="-30px";
 
-    corazon.style.fontSize=(15+Math.random()*20)+"px";
+    corazon.style.fontSize=(18+Math.random()*28)+"px";
 
-    corazon.style.opacity=.25;
+    corazon.style.opacity=.9;
 
     corazon.style.pointerEvents="none";
 
@@ -136,11 +139,16 @@ setInterval(()=>{
 
     corazon.style.transition="5s linear";
 
+    corazon.style.filter="drop-shadow(0 0 8px rgba(255,0,80,.5))";
+
     document.body.appendChild(corazon);
 
     setTimeout(()=>{
 
-        corazon.style.transform="translateY(-120vh)";
+        const mover=(Math.random()*120)-60;
+
+        corazon.style.transform=
+       `translate(${mover}px,-120vh) rotate(${Math.random()*360}deg)`;
 
         corazon.style.opacity="0";
 
@@ -152,7 +160,7 @@ setInterval(()=>{
 
     },5500);
 
-},900);
+},450);
 
 
 
