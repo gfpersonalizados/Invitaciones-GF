@@ -131,13 +131,13 @@ setInterval(()=>{
 
     corazon.style.fontSize=(18+Math.random()*28)+"px";
 
-    corazon.style.opacity=.9;
+    corazon.style.opacity=.85;
 
     corazon.style.pointerEvents="none";
 
     corazon.style.zIndex="999";
 
-    corazon.style.transition="5s linear";
+    corazon.style.transition="transform 6s ease-out, opacity 6s ease-out";
 
     corazon.style.filter="drop-shadow(0 0 8px rgba(255,0,80,.5))";
 
@@ -145,14 +145,11 @@ setInterval(()=>{
 
     setTimeout(()=>{
 
-        const mover=(Math.random()*120)-60;
+    corazon.style.transform="translateY(-120vh)";
 
-        corazon.style.transform=
-       `translate(${mover}px,-120vh) rotate(${Math.random()*360}deg)`;
+    corazon.style.opacity="0";
 
-        corazon.style.opacity="0";
-
-    },50);
+},50);
 
     setTimeout(()=>{
 
@@ -160,7 +157,7 @@ setInterval(()=>{
 
     },5500);
 
-},450);
+},350);
 
 
 
