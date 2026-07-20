@@ -1,23 +1,58 @@
 const CONFIG = {
-  novios: "Michel & Josue",
 
-  fecha: "2026-12-27T15:00:00",
+    //===========================
+    // NOVIOS
+    //===========================
 
-  ceremonia: "Parroquia San Francisco de Asís, Yucuaiquín",
+    novio: "Carlos",
 
-  recepcion: "Ranchón de la Hacienda",
+    novia: "María",
 
-  whatsapp: "50377777777",
 
-  maps: "https://www.google.com/maps/place/Ranch%C3%B3n+de+La+Hacienda/@13.5241992,-88.0046338,17z/data=!3m1!4b1!4m6!3m5!1s0x8f7ad30032da1b41:0x4dc42d74667433bd!8m2!3d13.5241992!4d-88.0020589!16s%2Fg%2F11vk3s0ysw",
+    //===========================
+    // FECHAS
+    //===========================
 
-  video: "invitacion.mp4",
+    fechaTexto: "14 de febrero de 2027",
 
-  musica: "musica.mp3",
+    // Formato:
+    // Año-Mes-Día Hora:Minuto:Segundo
 
-  fotos: [
-    "foto1.jpg",
-    "foto2.jpg",
-    "foto3.jpg"
-  ]
+    fechaCuenta: "2027-02-14 16:00:00",
+
+
+    //===========================
+    // CEREMONIA
+    //===========================
+
+    ceremonia:
+    "Iglesia El Rosario<br>4:00 PM",
+
+
+    //===========================
+    // RECEPCIÓN
+    //===========================
+
+    recepcion:
+    "Hotel Real Intercontinental<br>6:00 PM",
+
+
+    //===========================
+    // MAPA
+    //===========================
+
+    mapa:
+    "https://maps.google.com/",
+
+
+    //===========================
+    // WHATSAPP
+    //===========================
+
+    telefono:
+    "50370000000",
+
+    mensajeWhatsapp:
+    "Hola, confirmo mi asistencia a la boda ❤️"
+
 };
