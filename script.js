@@ -1,497 +1,191 @@
-/*==============================
-      GF PERSONALIZADOS
- Invitaciones Premium v1.0
-==============================*/
+//========================================
+// GF Personalizados
+// Invitaciones Premium
+//========================================
 
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap');
+document.addEventListener("DOMContentLoaded", () => {
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    // Nombres
+    document.getElementById("novios").textContent =
+        CONFIG.novio + " & " + CONFIG.novia;
 
-html{
-scroll-behavior:smooth;
-}
+    // Fecha
+    document.getElementById("fechaEvento").innerHTML =
+        "<strong>Fecha:</strong> " + CONFIG.fechaTexto;
 
-body{
+    // Ceremonia
+    document.getElementById("ceremonia").innerHTML =
+        "<strong>Ceremonia:</strong><br>" +
+        CONFIG.ceremonia;
 
-font-family:'Montserrat',sans-serif;
+    // Recepción
+    document.getElementById("recepcion").innerHTML =
+        "<strong>Recepción:</strong><br>" +
+        CONFIG.recepcion;
 
-background:
-linear-gradient(180deg,#fffefb,#fdf8ee,#ffffff);
+    // Botones
+    document.getElementById("btnMapa").href = CONFIG.mapa;
 
-overflow-x:hidden;
+    document.getElementById("btnWhatsApp").href =
+        "https://wa.me/" +
+        CONFIG.telefono +
+        "?text=" +
+        encodeURIComponent(CONFIG.mensajeWhatsapp);
 
-color:#444;
+    iniciarContador();
 
-}
+});
 
 
-/*==========================
-PORTADA
-==========================*/
+//========================================
+// Abrir Invitación
+//========================================
 
-.hero{
+function abrirInvitacion(){
 
-height:100vh;
+    const video=document.getElementById("video");
 
-display:flex;
+    video.style.display="block";
 
-justify-content:center;
+    video.scrollIntoView({
+        behavior:"smooth"
+    });
 
-align-items:center;
-
-text-align:center;
-
-position:relative;
-
-overflow:hidden;
-
-background:
-
-linear-gradient(rgba(0,0,0,.45),
-rgba(0,0,0,.45)),
-
-url("portada.jpg");
-
-background-size:cover;
-
-background-position:center;
+    document
+        .getElementById("videoInvitacion")
+        .play();
 
 }
 
 
-/* Fondo brillante */
 
-.hero::before{
+//========================================
+// Cuenta regresiva
+//========================================
 
-content:"";
+function iniciarContador(){
 
-position:absolute;
+    function actualizar(){
 
-width:180%;
+        const destino=new Date(CONFIG.fechaCuenta);
 
-height:180%;
+        const ahora=new Date();
 
-background:
+        const diferencia=destino-ahora;
 
-radial-gradient(circle,
-rgba(255,255,255,.15),
-transparent 70%);
+        if(diferencia<=0){
 
-animation:girar 30s linear infinite;
+            document.getElementById("contador").innerHTML=
+            "¡Llegó el gran día! ❤️";
 
-}
+            return;
 
+        }
 
-/* Destellos */
+        const dias=Math.floor(diferencia/(1000*60*60*24));
 
-.hero::after{
+        const horas=Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
 
-content:"";
+        const minutos=Math.floor((diferencia%(1000*60*60))/(1000*60));
 
-position:absolute;
+        const segundos=Math.floor((diferencia%(1000*60))/1000);
 
-width:100%;
+        document.getElementById("contador").innerHTML=
 
-height:100%;
+        dias+" días "
 
-background-image:
+        +horas+" h "
 
-radial-gradient(#ffffff 1px,transparent 1px);
+        +minutos+" min "
 
-background-size:35px 35px;
+        +segundos+" seg";
 
-opacity:.25;
+    }
 
-animation:brillo 6s infinite;
+    actualizar();
 
-}
-
-
-.overlay{
-
-position:relative;
-
-z-index:10;
-
-animation:subir 2s;
+    setInterval(actualizar,1000);
 
 }
 
 
-.hero h1{
 
-font-family:'Great Vibes',cursive;
+//========================================
+// Corazones flotando
+//========================================
 
-font-size:80px;
+setInterval(()=>{
 
-color:white;
+    let corazon=document.createElement("div");
 
-text-shadow:
+    corazon.innerHTML="❤";
 
-0 0 10px black,
+    corazon.style.position="fixed";
 
-0 0 25px rgba(255,215,0,.7);
+    corazon.style.left=Math.random()*100+"vw";
 
-margin-bottom:15px;
+    corazon.style.bottom="-30px";
 
-}
+    corazon.style.fontSize=(15+Math.random()*20)+"px";
 
+    corazon.style.opacity=.25;
 
-.hero p{
+    corazon.style.pointerEvents="none";
 
-font-size:28px;
+    corazon.style.zIndex="999";
 
-letter-spacing:3px;
+    corazon.style.transition="5s linear";
 
-color:white;
+    document.body.appendChild(corazon);
 
-margin-bottom:40px;
+    setTimeout(()=>{
 
-}
+        corazon.style.transform="translateY(-120vh)";
 
+        corazon.style.opacity="0";
 
-.btn{
+    },50);
 
-display:inline-block;
+    setTimeout(()=>{
 
-padding:18px 45px;
+        corazon.remove();
 
-border-radius:50px;
+    },5500);
 
-background:linear-gradient(90deg,#d4af37,#ffd700,#d4af37);
+},900);
 
-background-size:300%;
 
-border:none;
 
-cursor:pointer;
+//========================================
+// Galería automática
+//========================================
 
-font-size:20px;
+const fotos=[
 
-color:white;
+"foto1.jpg",
 
-font-weight:bold;
+"foto2.jpg",
 
-transition:.4s;
+"foto3.jpg"
 
-animation:boton 5s linear infinite;
+];
 
-box-shadow:
+let indice=0;
 
-0 0 20px rgba(255,215,0,.5);
+setInterval(()=>{
 
-}
+    indice++;
 
+    if(indice>=fotos.length){
 
-.btn:hover{
+        indice=0;
 
-transform:scale(1.08);
+    }
 
-}
+    document.getElementById("foto1").src=fotos[indice];
 
+    document.getElementById("foto2").src=fotos[(indice+1)%3];
 
-/*==========================
-VIDEO
-==========================*/
+    document.getElementById("foto3").src=fotos[(indice+2)%3];
 
-#video{
-
-padding:50px;
-
-text-align:center;
-
-background:white;
-
-}
-
-
-video{
-
-width:95%;
-
-max-width:430px;
-
-border-radius:25px;
-
-box-shadow:
-
-0 15px 35px rgba(0,0,0,.35);
-
-}
-
-
-/*==========================
-TARJETA
-==========================*/
-
-.card{
-
-width:92%;
-
-max-width:760px;
-
-margin:50px auto;
-
-background:white;
-
-padding:40px;
-
-border-radius:25px;
-
-box-shadow:
-
-0 10px 40px rgba(0,0,0,.12);
-
-}
-
-
-.card h2{
-
-font-size:34px;
-
-color:#c49a2c;
-
-margin-bottom:25px;
-
-}
-
-
-#contador{
-
-font-size:34px;
-
-font-weight:bold;
-
-color:#d4af37;
-
-margin:30px 0;
-
-}
-
-
-.card p{
-
-font-size:22px;
-
-margin:18px;
-
-}
-
-
-/*==========================
-BOTONES
-==========================*/
-
-#btnMapa,
-#btnWhatsApp{
-
-display:inline-block;
-
-margin:12px;
-
-}
-
-
-/*==========================
-GALERIA
-==========================*/
-
-.galeria{
-
-display:flex;
-
-justify-content:center;
-
-gap:20px;
-
-flex-wrap:wrap;
-
-padding:60px 20px;
-
-}
-
-
-.galeria img{
-
-width:250px;
-
-height:250px;
-
-border-radius:20px;
-
-object-fit:cover;
-
-transition:.5s;
-
-box-shadow:
-
-0 10px 25px rgba(0,0,0,.2);
-
-}
-
-
-.galeria img:hover{
-
-transform:scale(1.06);
-
-}
-
-
-/*==========================
-FOOTER
-==========================*/
-
-footer{
-
-margin-top:60px;
-
-padding:50px;
-
-text-align:center;
-
-background:#222;
-
-color:white;
-
-}
-
-
-footer img{
-
-width:110px;
-
-margin-bottom:15px;
-
-}
-
-
-/*==========================
-ANIMACIONES
-==========================*/
-
-@keyframes subir{
-
-from{
-
-opacity:0;
-
-transform:translateY(80px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-@keyframes girar{
-
-0%{
-
-transform:rotate(0deg);
-
-}
-
-100%{
-
-transform:rotate(360deg);
-
-}
-
-}
-
-@keyframes brillo{
-
-0%,100%{
-
-opacity:.15;
-
-}
-
-50%{
-
-opacity:.35;
-
-}
-
-}
-
-@keyframes boton{
-
-0%{
-
-background-position:0%;
-
-}
-
-100%{
-
-background-position:300%;
-
-}
-
-}
-
-
-/*==========================
-CELULAR
-==========================*/
-
-@media(max-width:768px){
-
-.hero h1{
-
-font-size:56px;
-
-}
-
-.hero p{
-
-font-size:22px;
-
-}
-
-.btn{
-
-font-size:18px;
-
-padding:15px 30px;
-
-}
-
-.card h2{
-
-font-size:28px;
-
-}
-
-.card p{
-
-font-size:18px;
-
-}
-
-#contador{
-
-font-size:28px;
-
-}
-
-.galeria img{
-
-width:95%;
-
-height:auto;
-
-}
-
-}
+},4000);
